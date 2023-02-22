@@ -13,7 +13,7 @@ function pearls = drawMultiplePearls(row, column, color)
             % Decide what color to pick, change with matching function 
             sum = sum+1;
             % Call on function to get color
-            c = getColor(color);
+            c = getColor(color(i,j));
             % Plot the outer cirlce
             plot(p(1,:), p(2,:),'color',c)
             hold on
