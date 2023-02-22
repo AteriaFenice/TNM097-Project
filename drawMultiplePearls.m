@@ -1,20 +1,26 @@
 % plots multiple pearls in a rectangle based on row and column
-function pearls = drawMultiplePearls(row, column)
+function pearls = drawMultiplePearls(row, column, color)
     % outer radius
     or = 0.8;
     % inner radius
     ir = 0.4;
-    
+    sum = 0; % Remove later
     figure
     for j = 1:1:column
         for i = 1:1:row
             % draws one pearl at a time, with a step to the right
             p = drawPearl(or*2*i,or*2*j,ir,or);
-            plot(p(1,:), p(2,:))
+            % Decide what color to pick, change with matching function 
+            sum = sum+1;
+            % Call on function to get color
+            c = getColor(color);
+            % Plot the outer cirlce
+            plot(p(1,:), p(2,:),'color',c)
             hold on
-            plot(p(3,:), p(4,:))
+            % Plot inner circle
+            plot(p(3,:), p(4,:),'color',c)
             % fill outer circle with chosen color
-            fill(p(3,:), p(4,:),'b')
+            fill(p(3,:), p(4,:),c)
             % fill inner circle with white (background color)
             fill(p(1,:), p(2,:),'w')
         end
