@@ -22,7 +22,7 @@ function pearls = drawMultiplePearls(row, column, color)
             % fill outer circle with chosen color
             fill(p(3,:), p(4,:),c)
             % fill inner circle with white (background color)
-            fill(p(1,:), p(2,:),'w')
+            fill(p(1,:), p(2,:),'w') 
         end
     end
     axis equal
