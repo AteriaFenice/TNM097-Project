@@ -3,9 +3,14 @@ function tot_pearls = drawMultiplePearls2(im, pearl_size)
 
     row = floor(size(im,1)/pearl_size); % How many rows with pearls
     col = floor(size(im,2)/pearl_size); % How many cols with pearls
+    
+    % Single pearl to get the background 
+    c = [0,0,0]; % Black
+    temp = drawPearl2(pearl_size, c);
+     background = length(sum(temp(:,:));
 
     % Picks the color based on the image
-    color = compareColor(im, row, col, pearl_size);
+    color = compareColor(im, row, col, pearl_size, zero_nr);
 
     % Make the first pearl in the upper right left corner
     pearl_row = drawPearl2(pearl_size,getColor(color(1,1)));

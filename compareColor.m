@@ -1,4 +1,4 @@
-function c_index = compareColor(im, im_row, im_col, im_size)
+function c_index = compareColor(im, im_row, im_col, pearl_size)
 
     % Lab for the color spectrum 
     all_colours = 1:216;
@@ -12,8 +12,8 @@ function c_index = compareColor(im, im_row, im_col, im_size)
         current_col = 1;
         for j = 1:im_col
 
-            % Calculate mean values for all 32x32 boxes from the original image
-            im_rep(i,j,:) = mean(mean(im(current_row:current_row + im_size-1,current_col:current_col + im_size-1,:)));
+            % Calculate mean values for all nxn boxes from the original image
+            im_rep(i,j,:) = mean(mean(im(current_row:current_row + pearl_size-1,current_col:current_col + pearl_size-1,:)));
             
             % rgb -> Lab
             im_rep_Lab = rgb2lab(im_rep(i,j,:));
@@ -29,10 +29,10 @@ function c_index = compareColor(im, im_row, im_col, im_size)
             % Found index into the array with all colors
             c_index(i,j) = index;
 
-            current_col = current_col + im_size;
+            current_col = current_col + pearl_size;
 
         end
-        current_row = current_row + im_size;
+        current_row = current_row + pearl_size;
     end
 
 end
