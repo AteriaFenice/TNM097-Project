@@ -1,8 +1,9 @@
-function c_index = compareColor(im, im_row, im_col, pearl_size, b_color)
+function c_index = compareColor(im, im_row, im_col, pearl_size)
     
     % Calculate the color with the background color
     temp_pearl_c = [1,1,1];
-    temp = drawPearl2(pearl_size, temp_pearl_c, b_color);
+    background_c = [0,0,0];
+    temp = drawPearl2(pearl_size, temp_pearl_c);
     
     % Calculate how many pixels are the background
     background = length(sum(temp(:,:) == 1));
@@ -11,6 +12,7 @@ function c_index = compareColor(im, im_row, im_col, pearl_size, b_color)
     
     all_colors = 1:216;
     colors = getColor(all_colors);
+    
     
     % Lab for the color spectrum 
     c_Lab(all_colors,:) = rgb2lab(colors);
@@ -37,7 +39,8 @@ function c_index = compareColor(im, im_row, im_col, pearl_size, b_color)
             im_rep(i,j,:) = mean(mean(im(current_row:current_row + pearl_size-1,current_col:current_col + pearl_size-1,:)));
             
             % Calculate the color with the background color
-            im_rep_c(1,1,:) = background_pr * b_color(1,1,:) + (1-background_pr) * im_rep(i,j,:);
+            im_rep(i,j
+            im_rep_c = background_pr * background_c + (1-background_pr) * im_rep(i,j,:)
             
             % rgb -> Lab
             im_rep_Lab = rgb2lab(im_rep_c);

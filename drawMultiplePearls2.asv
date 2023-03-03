@@ -20,11 +20,11 @@ function tot_pearls = drawMultiplePearls2(im, pearl_size, b_color)
     % Make the rest of the pearls
     for i = 2:1:row
         % First pearl in the row
-         pearl_row = drawPearl2(pearl_size,getColor(color_index(i,1)), b_color);
+         pearl_row = drawPearl2(pearl_size,getColor(color_index(i,1)), );
 
         for j = 2:1:col
             % Append the rest of the pearls in the row
-            pearl_row = cat(2,pearl_row, drawPearl2(pearl_size,getColor(color_index(i,j)), b_color));
+            pearl_row = cat(2,pearl_row, drawPearl2(pearl_size,getColor(color_index(i,j))));
         end
 
         % Append the row to the array
