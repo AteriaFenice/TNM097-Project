@@ -15,6 +15,14 @@ function [colors, c_index] = compareColor(im, im_row, im_col, pearl_size, b_colo
         all_colors = 1:216;
         colors = getColor(all_colors);
     end
+    if o_color == 2 % Optimised HTML Colors
+        all_colors = 1:54;
+        colors(:,:) = findLessColors();
+    end
+    if o_color == 3 % 54 random colors
+        all_colors = 1:54;
+        colors = randi(255, 54,3)/255;
+    end
     if o_color == 4 % Colors from image
         all_colors = 1:54;
         colors = colorFromIm(im);
