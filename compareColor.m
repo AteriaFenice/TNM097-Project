@@ -1,4 +1,4 @@
-function c_index = compareColor(im, im_row, im_col, pearl_size, b_color)
+function [colors, c_index] = compareColor(im, im_row, im_col, pearl_size, b_color, o_color)
     
     % Calculate the color with the background color
     temp_pearl_c = [1,1,1];
@@ -9,8 +9,16 @@ function c_index = compareColor(im, im_row, im_col, pearl_size, b_color)
     % Calcualte the procentage that is background
     background_pr = background/(pearl_size*pearl_size);
     
-    all_colors = 1:216;
-    colors = getColor(all_colors);
+    % Options for the different color spectrum
+    all_colors = 0;
+    if o_color == 1 % HTML Colors
+        all_colors = 1:216;
+        colors = getColor(all_colors);
+    end
+    if o_color == 4 % Colors from image
+        all_colors = 1:54;
+        colors = colorFromIm(im);
+    end
     
     % Lab for the color spectrum 
     c_Lab(all_colors,:) = rgb2lab(colors);
