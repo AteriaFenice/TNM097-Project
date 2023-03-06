@@ -7,15 +7,6 @@ function tot_pearls = drawMultiplePearls2(im, pearl_size, b_color, o_color)
     % Picks the color based on the image
     [colors, color_index] = compareColor(im, row, col, pearl_size, b_color, o_color);
     
-    % Options for the different color spectrums
-%     if o_color == 1 % HTML Colors
-%         all_colors = 1:216;
-%         colors = getColor(all_colors);
-%     end
-%     if o_color == 4 % Color from image
-%         colors = colorFromIm(im);
-%     end
-%    
     % Make the first pearl in the upper right left corner
     pearl_row = drawPearl2(pearl_size,colors(color_index(1,1),:), b_color);
 

@@ -64,9 +64,6 @@ function [colors, c_index] = compareColor(im, im_row, im_col, pearl_size, b_colo
             % color in the color spectrum
             E_ab(:,all_colors) = sqrt((im_rep_Lab(:,:,1)-c_Lab(all_colors,1)).^2 + (im_rep_Lab(:,:,2)-c_Lab(all_colors,2)).^2 + (im_rep_Lab(:,:,3)-c_Lab(all_colors,3)).^2);
             
-            % Distance from the colors from the image
-            %E_ab(:,colors_im) = sqrt((im_rep_Lab(:,:,1)-c_im(colors_im,1)).^2 + (im_rep_Lab(:,:,2)-c_im(colors_im,2)).^2 + (im_rep_Lab(:,:,3)-c_im(colors_im,3)).^2);
-            
             [min_dis, index] = min(E_ab);
             
             % Found index into the array with all colors
