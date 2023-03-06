@@ -24,7 +24,7 @@ disp("S_CIELAB1: " + mean(mean(rep_scielab)));
 % SSIM
 [ssim_rep, ssim_rep_map] = ssim(original, rep);
 disp("SSIM: " + ssim_rep);
-imshow(ssim_rep_map);
+%imshow(ssim_rep_map);
 
 output = [snr_reproduction, mean(mean(rep_scielab)), ssim_rep];
 
